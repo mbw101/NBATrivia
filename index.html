@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+        <meta name="description" content="NBA Trivia web app made by Malcolm Wright">
+        <meta name="keywords" content="NBA, Trivia, NBA Trivia, National Basketball Association, Basketball, NBA Quizzes">
+        <meta name="author" content="Malcolm Wright">
+
+        <title>NBA Trivia Created By Malcolm Wright</title>
+        <link rel="icon" href="img/NBAIcon.ico">
+        <!-- CSS for bootstrapvue and our own css -->
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Main div for vue -->
+        <div id="app">
+            <h1>NBA Trivia made by Malcolm Wright</h1>
+            <b-button block variant="primary" v-on:click="started = !started" id="startButton" v-if="!started">Start Quiz</b-button>
+            <template v-else>
+                <h2>{{ message }}</h2>
+                <b-button lg="4" id="aButton" v-on:click="checkAnswer('A')">A</b-button>
+                <b-button lg="4" id="bButton" v-on:click="checkAnswer('B')">B</b-button>
+                <b-button lg="4" id="cButton" v-on:click="checkAnswer('C')">C</b-button>
+                <b-button lg="4" id="dButton" v-on:click="checkAnswer('D')">D</b-button>
+                <p>Score: {{ score }}/ {{ amountOfQuestions }}</p>
+            </template>
+        </div>     
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

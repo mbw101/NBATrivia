@@ -1,0 +1,73 @@
+[{
+    "id": 0,
+    "question": "Which player had his jersey retired by the Miami Heat?",
+    "a" : "Michael Jordan",
+    "b" : "Pete Maravich",
+    "c" : "Bam Adebayo",
+    "d" : "Chris Webber",
+    "answer" : "a"
+},
+{
+    "id": 1,
+    "question": "Who has the most blocks in an NBA career?",
+    "a" : "David Robinson",
+    "b" : "Shaquille O'Neal",
+    "c" : "Hakeem Olajuwon",
+    "d" : "Elmore Smith",
+    "answer" : "c"
+},
+{
+    "id": 2,
+    "question": "Who has the most blocks in an NBA game?",
+    "a" : "David Robinson",
+    "b" : "Shaquille O'Neal",
+    "c" : "Hakeem Olajuwon",
+    "d" : "Elmore Smith",
+    "answer" : "d"
+},
+{
+    "id": 3,
+    "question": "Which NBA player when to Texas University?",
+    "a" : "Kevin Durant",
+    "b" : "Bradley Beal",
+    "c" : "Pascal Siakam",
+    "d" : "Eric Bledsoe",
+    "answer" : "a"
+},
+{
+    "id": 4,
+    "question": "Which college did CJ McCollum go?",
+    "a" : "Weber State",
+    "b" : "Lehigh",
+    "c" : "Ohio State",
+    "d" : "Michigan",
+    "answer" : "b"
+},
+{
+    "id": 5,
+    "question": "Who is the leading scorer of all time?",
+    "a" : "Michael Jordan",
+    "b" : "Kareem-Abdul Jabbar",
+    "c" : "Wilt Chamberlain",
+    "d" : "Kobe Bryant",
+    "answer" : "b"
+},
+{
+    "id": 6,
+    "question": "How many championships did Kobe Brynat win?",
+    "a" : "3",
+    "b" : "4",
+    "c" : "5",
+    "d" : "6",
+    "answer" : "c"
+},
+{
+    "id": 7,
+    "question": "How many 3 pointers did Ray Allen make in his career?",
+    "a" : "2,973",
+    "b" : "2,560",
+    "c" : "2,495",
+    "d" : "3,223",
+    "answer" : "a"
+}
+]
