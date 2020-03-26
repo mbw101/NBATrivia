@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
+/* general styles */
 body {
   background-color: #EEEEEE;
   font-family: 'Montserrat', sans-serif;
@@ -12,7 +13,6 @@ body {
 h1 {
     margin: auto;
     text-align: center;
-    margin-bottom: 50%;
 }
 
 body, html {
@@ -20,6 +20,7 @@ body, html {
   height: 100%;
 }
 
+/* div styles and ids*/
 #app {
     width: 50%;
     border: black;
@@ -28,6 +29,26 @@ body, html {
     text-align: center;
     position: relative;
     display: grid;
+}
+
+#title {
+  margin-bottom: 50%;
+}
+
+#newTitle {
+  margin-bottom: 5%;
+}
+
+#question {
+  margin-bottom: 5%;
+}
+
+.btn-secondary {
+  font-size: xx-large;
+}
+
+#score {
+  font-size: 24px;
 }
 
 #startButton {
@@ -39,7 +60,7 @@ body, html {
   transform: translate(-50%, -50%); 
 }
 
-/* media queries */
+/* media queries TODO */
 @media (max-width: 500px) {
   
 }

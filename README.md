@@ -6,6 +6,6 @@ framework for javascript as well as bootstrap-vue for css!
 
 
 ## TODO:
-* Complete formatting and style of the answer buttons and the question text
 * Be able to read in questions stored in JSON and display them
 * Being able to progress to the next question if they got the question right
+* Complete queries for phone screens
