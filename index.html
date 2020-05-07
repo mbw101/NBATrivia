@@ -1,38 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
-        <meta name="description" content="NBA Trivia web app made by Malcolm Wright">
-        <meta name="keywords" content="NBA, Trivia, NBA Trivia, National Basketball Association, Basketball, NBA Quizzes">
-        <meta name="author" content="Malcolm Wright">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="NBA Trivia web app made by Malcolm Wright">
+    <meta name="keywords" content="NBA, Trivia, NBA Trivia, National Basketball Association, Basketball, NBA Quizzes">
+    <meta name="author" content="Malcolm Wright">
+    
+    <!-- CSS for bootstrapvue and our own css -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+    
+    <link rel="icon" href="static/NBAIcon.ico">
+    <title>NBA Trivia Created By Malcolm Wright</title>
+  </head>
 
-        <title>NBA Trivia Created By Malcolm Wright</title>
-        <link rel="icon" href="img/NBAIcon.ico">
-        <!-- CSS for bootstrapvue and our own css -->
-        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <!-- Main div for vue -->
-        <div id="app">
-            <h1 id="title" v-if="!started">NBA Trivia made by Malcolm Wright</h1>
-            <h1 id="newTitle" v-if="started">NBA Trivia - Malcolm Wright</h1>
-
-            <b-button block variant="primary" v-on:click="started = !started" id="startButton" v-if="!started" class="p-4 mx-auto">Start Quiz</b-button>
-            <template v-else>
-                <h2 id="question">{{ message }}</h2>
-                <b-button lg="4" id="aButton" v-on:click="checkAnswer('A')" class="pb-4, m-1">A</b-button>
-                <b-button lg="4" id="bButton" v-on:click="checkAnswer('B')" class="pb-4, m-1">B</b-button>
-                <b-button lg="4" id="cButton" v-on:click="checkAnswer('C')" class="pb-4, m-1">C</b-button>
-                <b-button lg="4" id="dButton" v-on:click="checkAnswer('D')" class="pb-4, m-1">D</b-button>
-                <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
-            </template>
-        </div>     
-
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
-        <script src="script.js"></script>
-    </body>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
