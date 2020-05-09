@@ -1,16 +1,22 @@
 <template>
-  <div id="app">
+  <div id="app_div">
     <router-view/>
   </div>
 </template>
 
 <script>
+/*Vue.component('app', {
+
+});*/
+
 export default {
-  name: 'App'
+  name: 'app'
 }
+
 </script>
 
 <style>
+
 body {
   background-color: #EEEEEE;
   font-family: 'Montserrat', sans-serif;
@@ -20,14 +26,9 @@ body {
   align-items: center;
 }
 
-/*h1 {
-    margin: auto;
-    text-align: center;
-}*/
-
 body, html {
-  margin: 0;
   height: 100%;
+  align-items: center;
 }
 
 /*#app {

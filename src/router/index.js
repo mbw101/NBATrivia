@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import main from '@/components/main'
+import quiz from '@/components/quiz'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: main
+      name: 'quiz',
+      component: quiz
     }
   ]
 })
