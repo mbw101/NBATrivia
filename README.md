@@ -23,6 +23,5 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## TODO:
-* Be able to read in questions stored in JSON, transfer them to Vuejs, and display to the user
-* Being able to progress to the next question if they got the question right
+* Adjust some of the styling so window doesn't change size when there is a new question
 * Complete queries for phone screens
