@@ -70,5 +70,23 @@
         "c" : "2,495",
         "d" : "3,223",
         "answer" : "a"
+    },
+    {
+        "id": 9,
+        "question": "Which of these players have the most runner-up MVPs (second votes) but have never won an MVP?",
+        "a" : "George Gervin",
+        "b" : "Bob McAdoo",
+        "c" : "Jerry West",
+        "d" : "Oscar Robertson",
+        "answer" : "c"
+    },
+    {
+        "id": 10,
+        "question": "How many times has Michael Jordan led the league in scoring?",
+        "a" : "9 times",
+        "b" : "10 times",
+        "c" : "11 times",
+        "d" : "12 times",
+        "answer" : "b"
     }    
 ]
