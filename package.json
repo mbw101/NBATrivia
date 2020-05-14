@@ -1,7 +1,7 @@
 {
   "name": "nba_trivia",
   "version": "1.0.0",
-  "description": "A Vue js Project that includes a backend that accesses a JSON file with trivia questions about the NBA",
+  "description": "An NBA Trivia app written using Vuejs, nodejs, and bootstrap",
   "author": "Malcolm Wright <wrightmbw01@gmail.com>",
   "private": true,
   "scripts": {

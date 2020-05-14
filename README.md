@@ -24,4 +24,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## TODO:
 * Adjust some of the styling so window doesn't change size when there is a new question
+* Make sure to fix bug with play again button 
 * Complete queries for phone screens

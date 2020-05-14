@@ -1,13 +1,14 @@
 <template>
-  <div id="app_div" class="p-5">
-    <h1 id="title" v-if="!started">NBA Trivia made by Malcolm Wright</h1>
-    <h1 id="newTitle" v-if="started">NBA Trivia - Malcolm Wright</h1>
+  <div id="app_div" class="p-5 rounded">
+    <h1 id="title" v-if="!started">Easy NBA Trivia App</h1>
+    <h1 id="newTitle" v-if="started">Easy NBA Trivia App</h1>
     <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
     <p id="finalMessage" v-if="finished">{{finalMessage}}</p>
     <p id="finalMessage" v-if="finished">Check out my <a href="https://mbw101.github.io/" target="_blank">website.</a></p>
+    <b-button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" class="pb-3, m-1" size="sm">Play again</b-button>
 
     <!-- start button for quiz -->
-    <b-button block variant="primary" v-on:click="started = !started" id="startButton" v-if="!started" class="p-4 mx-auto">Start Quiz</b-button>
+    <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started" class="p-4 mx-auto">Start Quiz</b-button>
     
     <!-- actual quiz part includes the question, the answers, and the user's score-->
     <template v-else-if="!finished">
@@ -18,6 +19,8 @@
       <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="pb-3, m-1" size="sm">{{ answer4 }}</b-button>
       <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
     </template>
+
+    <p id="credit">Made by Malcolm Wright</p>
   </div>
 </template>
 
@@ -100,12 +103,14 @@ export default {
             // go to next question unless we have reached the last one
             console.log("Amt:" + this.amountOfQuestions);
             console.log("Question #:" + this.questionNumber);
+
             if (this.questionNumber <= this.amountOfQuestions) {
               this.updateQuestion();
             }
             else {
               this.finished = true;
 
+              // decide final msg to user based on their final score
               if (this.score < 3) {
                 this.finalMessage = "I hope you know where you went wrong.";
               }
@@ -141,13 +146,20 @@ export default {
               this.answer4 = questionData[0].d;
               this.correctOption = questionData[0].answer;
           });
+        },
+        playAgain: function() {
+          // restart quiz back to normal and go to start section
+          // TODO: on second time around, first question is being skipped
+          this.score = 0;
+          this.questionNumber = 1;
+          this.finished = false;
+          this.started = false;
         }
     },
     created: function() {
       // loads the json questions when app is first started
       this.loadQuestions();
     },
-
 }
 
 </script>
@@ -157,7 +169,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 body {
-  background-color: #EEEEEE;
+  background-color: #EEE5E9;
   font-family: 'Montserrat', sans-serif;
   display: grid;
   grid-template-rows: auto;
@@ -170,12 +182,9 @@ h1 {
     text-align: center;
 }
 
-body, html {
-  margin: 0;
-  height: 100%;
-}
-
 #app_div {
+  background-color: #F1BF98;
+  padding-left: 25%;
   width: 100%;
   border: black;
   border-width: 3px;
@@ -204,6 +213,8 @@ body, html {
 
 .btn-secondary {
   font-size: x-large;
+  background-color: #CC2936;
+  color: #212529;
 }
 
 #score {

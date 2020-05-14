@@ -18,7 +18,7 @@ export default {
 <style>
 
 body {
-  background-color: #EEEEEE;
+  background-color: #08415C;
   font-family: 'Montserrat', sans-serif;
   display: grid;
   grid-template-rows: auto;
