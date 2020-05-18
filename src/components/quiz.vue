@@ -1,7 +1,6 @@
-  
 <template>
   <div id="app_div" class="rounded"> <!-- p-5 -->
-    <h1 id="title" v-if="!started">Easy NBA Trivia App</h1>
+    <h1 id="title" class="pt-5" v-if="!started">Easy NBA Trivia App</h1>
     <h1 id="newTitle" v-if="started">Easy NBA Trivia App</h1>
     <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
     <p id="finalMessage" v-if="finished">{{finalMessage}}</p>
@@ -10,7 +9,7 @@
 
     <!-- start button for quiz -->
     <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started" class="p-4 mx-auto">Start Quiz</b-button>
-    
+
     <!-- actual quiz part includes the question, the answers, and the user's score-->
     <template v-else-if="!finished">
       <h4 id="question">{{ question }}</h4>
@@ -21,7 +20,7 @@
       <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
     </template>
 
-    <p id="credit">Made by Malcolm Wright</p>
+    <p id="creditText" v-if="started">Made by Malcolm Wright</p>
   </div>
 </template>
 
@@ -241,5 +240,25 @@ h1 {
 #sectionHeight {
   width: 100%;
   height: 150%;
+}
+/* 
+#creditText {
+  padding-bottom: 30%;
+}  */
+
+@media only screen and (max-width: 768px) {
+  #app_div {
+    background-color: #f1bf98;
+    border: black;
+    border-width: 3px;
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    display: grid;
+    /*width: 100%;*/
+    /*width: 75%;
+    height: 80%;*/
+    width: 100%;
+  }
 }
 </style>

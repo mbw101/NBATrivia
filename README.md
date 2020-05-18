@@ -23,5 +23,5 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## TODO:
-* Adjust some of the minor stuff such as the credit on the bottom (Referring to the quiz window)
-* Complete queries for phone screens
+* Try to add a separate credit that may have different text on the quiz start screen
+* Phone queries need to be updated slightly with the title been below the button on some phones
