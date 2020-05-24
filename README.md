@@ -23,5 +23,6 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## TODO:
-* Try to add a separate credit that may have different text on the quiz start screen
-* Phone queries need to be updated slightly with the title been below the button on some phones
+* Write javascript to automatically split a question if it gets over a certain length
+* Potentially add animations/sounds for correct and incorrect answers
+* Add more quiz questions

@@ -1,26 +1,36 @@
 <template>
   <div id="app_div" class="rounded"> <!-- p-5 -->
-    <h1 id="title" class="pt-5" v-if="!started">Easy NBA Trivia App</h1>
-    <h1 id="newTitle" v-if="started">Easy NBA Trivia App</h1>
-    <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
-    <p id="finalMessage" v-if="finished">{{finalMessage}}</p>
-    <p id="finalMessage" v-if="finished">Check out my <a href="https://mbw101.github.io/" target="_blank">website.</a></p>
-    <b-button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" class="pb-3, m-1" size="sm">Play again</b-button>
+    <!-- most text including quiz start, start button and score -->
+    <h1 id="newTitle" class="p-3">Easy NBA Trivia App</h1>
 
-    <!-- start button for quiz -->
-    <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started" class="p-4 mx-auto">Start Quiz</b-button>
+    <template v-if="!started">
+      <!-- start button for quiz -->
+      <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started && !finished" class="p-4 mx-auto">Start Quiz</b-button>
+
+      <!-- This is a different id, so I can adjust the spacing without the other items such as buttons, question, etc -->
+      <p id="startingCreditText">Made by Malcolm Wright</p>
+    </template>
 
     <!-- actual quiz part includes the question, the answers, and the user's score-->
-    <template v-else-if="!finished">
+    <template v-if="!finished && started">
       <h4 id="question">{{ question }}</h4>
       <b-button pill id="aButton" v-on:click="checkAnswer('a')" class="pb-3, m-1" size="sm">{{ answer1 }}</b-button>
       <b-button pill id="bButton" v-on:click="checkAnswer('b')" class="pb-3, m-1" size="sm">{{ answer2 }}</b-button>
       <b-button pill id="cButton" v-on:click="checkAnswer('c')" class="pb-3, m-1" size="sm">{{ answer3 }}</b-button>
       <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="pb-3, m-1" size="sm">{{ answer4 }}</b-button>
       <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
+      <p id="creditText">Made by Malcolm Wright</p>
     </template>
 
-    <p id="creditText" v-if="started">Made by Malcolm Wright</p>
+    <template v-if="finished">
+      <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
+      <p id="finalMessage" v-if="finished">{{finalMessage}}</p>
+      <button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" type="button" class="btn btn-sm">Play again</button>
+
+      <p id="finalMessage" class="pt-5" v-if="finished">Check out my <a href="https://mbw101.github.io/" target="_blank">website</a></p>
+      <p id="creditText">Made by Malcolm Wright</p>
+    </template>
+    
   </div>
 </template>
 
@@ -172,6 +182,7 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
+/* CSS styles for each screen */
 body {
   background-color: #eee5e9;
   font-family: "Montserrat", sans-serif;
@@ -194,33 +205,24 @@ h1 {
   text-align: center;
   position: relative;
   display: grid;
-  /*width: 100%;*/
-  /*width: 75%;
-  height: 80%;*/
   width: 100%;
   height: 100%;
 }
 
 #question {
-  white-space: pre-wrap;
-}
-
-#title {
-  margin-bottom: 50%;
-}
-
-#newTitle {
   margin-bottom: 5%;
 }
 
-#question {
-  margin-bottom: 5%;
-}
-
-.btn-secondary {
+.btn-secondary, #playAgainButton {
   font-size: x-large;
   background-color: #cc2936;
   color: #212529;
+}
+
+#playAgainButton {
+  width: 50%;
+  margin: auto;
+  padding: 2%;
 }
 
 #score {
@@ -240,11 +242,18 @@ h1 {
 #sectionHeight {
   width: 100%;
   height: 150%;
-}
-/* 
+} 
+
+
 #creditText {
-  padding-bottom: 30%;
-}  */
+  font-size: 24px;
+}  
+
+#startingCreditText {
+  font-size: 24px;
+  position: relative;
+  margin-top: 25%;
+}
 
 @media only screen and (max-width: 768px) {
   #app_div {
@@ -261,4 +270,43 @@ h1 {
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 414px) {
+  #newTitle {
+    font-size: 35px;
+  } 
+
+  #startingCreditText {
+    margin-top: 85%;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #newTitle {
+    font-size: 24px;
+  } 
+
+  #startingCreditText {
+    margin-top: 85%;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .btn-secondary, #playAgainButton {
+    font-size: large;
+    background-color: #cc2936;
+    color: #212529;
+  }
+
+  #startingCreditText {
+    margin-top: 85%;
+  }
+
+  #creditText {
+    font-size: 14px;
+  }
+}
+
 </style>
