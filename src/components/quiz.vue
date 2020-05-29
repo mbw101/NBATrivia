@@ -13,7 +13,7 @@
 
     <!-- actual quiz part includes the question, the answers, and the user's score-->
     <template v-if="!finished && started">
-      <h4 id="question">{{ question }}</h4>
+      <h4 id="question" class="pt-4">{{ question }}</h4>
       <b-button pill id="aButton" v-on:click="checkAnswer('a')" class="pb-3, m-1" size="sm">{{ answer1 }}</b-button>
       <b-button pill id="bButton" v-on:click="checkAnswer('b')" class="pb-3, m-1" size="sm">{{ answer2 }}</b-button>
       <b-button pill id="cButton" v-on:click="checkAnswer('c')" class="pb-3, m-1" size="sm">{{ answer3 }}</b-button>
@@ -41,15 +41,22 @@ import axios from "axios";
 //Vue.config.productionTip = false
 
 // constants and variable that holds our json questions
-const numberOfQuestions = 10;
+const numberOfQuestions = 11;
 let defaultColour = "grey";
 let correctColour = "green";
 let wrongColour = "red";
 var questionData;
 
-/* resets everything for the quiz */
-function resetQuiz() {
-  quiz.score = 0;
+// these functions are responsible for the sounds
+function playCorrectSound() {
+  var correctSound = new Audio("../../static/soundCorrect.wav");
+  correctSound.volume = 0.4;
+  correctSound.play();
+}
+function playIncorrectSound() {
+  var incorrectSound = new Audio("../../static/soundIncorrect.wav");
+  incorrectSound.volume = 0.4;
+  incorrectSound.play();
 }
 
 // vue object
@@ -99,11 +106,13 @@ export default {
       console.log("Selected answer: " + option);
       console.log("Correct answer: " + this.correctOption);
 
-      // add to score if correct
+      // add to score if correct and play the respective score
       if (option == this.correctOption) {
         console.log("CORRECT");
+        playCorrectSound();
         this.score += 1;
       } else {
+        playIncorrectSound();
         console.log("INCORRECT");
       }
 
@@ -211,6 +220,10 @@ h1 {
 
 #question {
   margin-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .btn-secondary, #playAgainButton {

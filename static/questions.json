@@ -88,5 +88,14 @@
         "c" : "11 times",
         "d" : "12 times",
         "answer" : "b"
-    }    
+    },
+    {
+        "id": 11,
+        "question": "In the 2018 season, who did the Raptors trade to receive Kawhi Leonard and Danny Green?",
+        "a" : "Demar DeRozan and Jakob Poeltl",
+        "b" : "Kyle Lowry and Demar DeRozan",
+        "c" : "Pascal Siakam and OG Anonuby",
+        "d" : "CJ Miles and Serge Ibaka",
+        "answer" : "a"
+    }  
 ]
