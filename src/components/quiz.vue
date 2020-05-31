@@ -1,11 +1,13 @@
 <template>
   <div id="app_div" class="rounded"> <!-- p-5 -->
     <!-- most text including quiz start, start button and score -->
-    <h1 id="newTitle" class="p-3">Easy NBA Trivia App</h1>
+    <h1 id="newTitle" class="p-3" v-if="!started || finished">Easy NBA Trivia App</h1>
+
+    <img id="imageDisplay" v-if="!finished" :src="imageSource"/>
 
     <template v-if="!started">
       <!-- start button for quiz -->
-      <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started && !finished" class="p-4 mx-auto">Start Quiz</b-button>
+      <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started && !finished" class="p-4 mt-3 mx-auto">Start Quiz</b-button>
 
       <!-- This is a different id, so I can adjust the spacing without the other items such as buttons, question, etc -->
       <p id="startingCreditText">Made by Malcolm Wright</p>
@@ -14,10 +16,15 @@
     <!-- actual quiz part includes the question, the answers, and the user's score-->
     <template v-if="!finished && started">
       <h4 id="question" class="pt-4">{{ question }}</h4>
-      <b-button pill id="aButton" v-on:click="checkAnswer('a')" class="pb-3, m-1" size="sm">{{ answer1 }}</b-button>
-      <b-button pill id="bButton" v-on:click="checkAnswer('b')" class="pb-3, m-1" size="sm">{{ answer2 }}</b-button>
-      <b-button pill id="cButton" v-on:click="checkAnswer('c')" class="pb-3, m-1" size="sm">{{ answer3 }}</b-button>
-      <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="pb-3, m-1" size="sm">{{ answer4 }}</b-button>
+      <div id="topRow" class="row pl-4 pr-4 mt-3">
+        <b-button pill id="aButton" v-on:click="checkAnswer('a')" class="m-1 col" size="sm">{{ answer1 }}</b-button>
+        <b-button pill id="bButton" v-on:click="checkAnswer('b')" class="m-1 col" size="sm">{{ answer2 }}</b-button>
+      </div>
+      <div id="bottomRow" class="row pl-4 pr-4">
+        <b-button pill id="cButton" v-on:click="checkAnswer('c')" class="m-1 col" size="sm">{{ answer3 }}</b-button>
+        <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="m-1 col" size="sm">{{ answer4 }}</b-button>
+      </div>
+
       <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
       <p id="creditText">Made by Malcolm Wright</p>
     </template>
@@ -41,7 +48,7 @@ import axios from "axios";
 //Vue.config.productionTip = false
 
 // constants and variable that holds our json questions
-const numberOfQuestions = 11;
+const numberOfQuestions = 14;
 let defaultColour = "grey";
 let correctColour = "green";
 let wrongColour = "red";
@@ -79,7 +86,8 @@ export default {
       answer2: "B",
       answer3: "C",
       answer4: "D",
-      correctOption: ""
+      correctOption: "",
+      imageSource: ""
     };
   },
   computed: {
@@ -96,6 +104,8 @@ export default {
       this.answer3 = questionData[this.questionNumber - 1].c;
       this.answer4 = questionData[this.questionNumber - 1].d;
       this.correctOption = questionData[this.questionNumber - 1].answer;
+      this.imageSource = "../../static/" + questionData[this.questionNumber - 1].image;
+      console.log(this.imageSource);
     },
     checkAnswer: function(option) {
       // the margin bottom for h1 has to be changed (h1 is the title header)
@@ -129,14 +139,14 @@ export default {
         this.finished = true;
 
         // decide final msg to user based on their final score
-        if (this.score < 3) {
+        if (this.score < 4) {
           this.finalMessage = "I hope you know where you went wrong.";
-        } else if (this.score < 5) {
+        } else if (this.score < 7) {
           this.finalMessage =
             "You have to brush up on your NBA trivia knowledge a little";
-        } else if (this.score < 7) {
+        } else if (this.score < 10) {
           this.finalMessage = "You got average knowledge of the NBA";
-        } else if (this.score < 9) {
+        } else if (this.score < numberOfQuestions) {
           this.finalMessage = "You have great knowledge of the NBA";
         } else {
           this.finalMessage = "Fantastic, you got perfect!";
@@ -160,6 +170,8 @@ export default {
           this.answer3 = questionData[0].c;
           this.answer4 = questionData[0].d;
           this.correctOption = questionData[0].answer;
+          this.imageSource = "../../static/" + questionData[0].image;
+          console.log(this.imageSource);
         });
       }
     },
@@ -177,6 +189,8 @@ export default {
       this.answer3 = questionData[0].c;
       this.answer4 = questionData[0].d;
       this.correctOption = questionData[0].answer;
+      this.imageSource = "../../static/" + questionData[0].image;
+      console.log(this.imageSource);
     }
   },
   created: function() {
@@ -219,10 +233,8 @@ h1 {
 }
 
 #question {
-  margin-bottom: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  overflow: hidden;
   word-break: break-word;
 }
 
@@ -230,6 +242,15 @@ h1 {
   font-size: x-large;
   background-color: #cc2936;
   color: #212529;
+}
+
+#aButton, #bButton, #cButton, #dButton {
+  width: 30%;
+  display: block;
+}
+
+#topRow {
+  
 }
 
 #playAgainButton {
@@ -246,10 +267,9 @@ h1 {
   text-align: center;
   /* centers the button in the middle of the parent div */
   width: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 50%;
+  left: 50%; */
+  margin: auto;
 }
 
 #sectionHeight {
@@ -265,7 +285,13 @@ h1 {
 #startingCreditText {
   font-size: 24px;
   position: relative;
-  margin-top: 25%;
+}
+
+#imageDisplay {
+  width: 450px;
+  height: 260px;
+  margin: auto;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
