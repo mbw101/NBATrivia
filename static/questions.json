@@ -138,5 +138,45 @@
         "d" : "18 million",
         "answer" : "d",
         "image" : "warriors.jpg"
+    },
+    {
+        "id": 15,
+        "question": "Who was the leader in field goal percentage in the 2018-2019 season?",
+        "a" : "Ben Simmons",
+        "b" : "Rudy Gobert",
+        "c" : "Jonas Valančiūnas",
+        "d" : "Giannis Antetokounmpo",
+        "answer" : "b",
+        "image" : "kevinLove.jpg"
+    },
+    {
+        "id": 16,
+        "question": "How many 3-pointers did Kareem Abdul-Jabaar make in his NBA career?",
+        "a" : "0",
+        "b" : "1",
+        "c" : "2",
+        "d" : "3",
+        "answer" : "b",
+        "image" : "brogdon.jpg"
+    },
+    {
+        "id": 17,
+        "question": "Which of these NBA players has the highest points per game average in their career?",
+        "a" : "Rick Barry",
+        "b" : "Pete Maravich",
+        "c" : "George Gervin",
+        "d" : "Dwyane Wade",
+        "answer" : "c",
+        "image" : "benSimmons.jpg"
+    },
+    {
+        "id": 18,
+        "question": "Which of these NBA players has the highest rebounds per game average in their career?",
+        "a" : "Charles Barkley",
+        "b" : "Hakeem Olajuwon",
+        "c" : "Dennis Rodman",
+        "d" : "Shaquille O'Neal",
+        "answer" : "a",
+        "image" : "alHorfod.jpg"
     }
 ]

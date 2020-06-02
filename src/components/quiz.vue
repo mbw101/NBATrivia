@@ -10,7 +10,7 @@
       <b-button block variant="secondary" v-on:click="started = !started" id="startButton" v-if="!started && !finished" class="p-4 mt-3 mx-auto">Start Quiz</b-button>
 
       <!-- This is a different id, so I can adjust the spacing without the other items such as buttons, question, etc -->
-      <p id="startingCreditText">Made by Malcolm Wright</p>
+      <p id="startingCreditText">Copyright &copy; 2020 Malcolm Wright</p>
     </template>
 
     <!-- actual quiz part includes the question, the answers, and the user's score-->
@@ -26,16 +26,16 @@
       </div>
 
       <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
-      <p id="creditText">Made by Malcolm Wright</p>
+      <p id="creditText">Copyright &copy; 2020 Malcolm Wright</p>
     </template>
 
     <template v-if="finished">
       <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
-      <p id="finalMessage" v-if="finished">{{finalMessage}}</p>
+      <h3 id="finalMessage" v-if="finished">{{finalMessage}}</h3>
       <button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" type="button" class="btn btn-sm">Play again</button>
 
       <p id="finalMessage" class="pt-5" v-if="finished">Check out my <a href="https://mbw101.github.io/" target="_blank">website</a></p>
-      <p id="creditText">Made by Malcolm Wright</p>
+      <p id="creditText">Copyright &copy; 2020 Malcolm Wright</p>
     </template>
     
   </div>
@@ -48,7 +48,7 @@ import axios from "axios";
 //Vue.config.productionTip = false
 
 // constants and variable that holds our json questions
-const numberOfQuestions = 14;
+const numberOfQuestions = 18;
 let defaultColour = "grey";
 let correctColour = "green";
 let wrongColour = "red";
@@ -139,12 +139,11 @@ export default {
         this.finished = true;
 
         // decide final msg to user based on their final score
-        if (this.score < 4) {
+        if (this.score < 5) {
           this.finalMessage = "I hope you know where you went wrong.";
-        } else if (this.score < 7) {
-          this.finalMessage =
-            "You have to brush up on your NBA trivia knowledge a little";
         } else if (this.score < 10) {
+          this.finalMessage = "You have to brush up on your NBA trivia knowledge a little";
+        } else if (this.score < 14) {
           this.finalMessage = "You got average knowledge of the NBA";
         } else if (this.score < numberOfQuestions) {
           this.finalMessage = "You have great knowledge of the NBA";
