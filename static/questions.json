@@ -178,5 +178,25 @@
         "d" : "Shaquille O'Neal",
         "answer" : "a",
         "image" : "alHorfod.jpg"
+    },
+    {
+        "id": 19,
+        "question": "Out of these players, who won an NBA MVP award in their rookie year?",
+        "a" : "Michael Jordan",
+        "b" : "LeBron James",
+        "c" : "Magic Johnson",
+        "d" : "Wes Unseld",
+        "answer" : "d",
+        "image" : "pgKawhi.jpg"
+    },
+    {
+        "id": 20,
+        "question": "Who was the youngest MVP in NBA history?",
+        "a" : "Derrick Rose",
+        "b" : "LeBron James",
+        "c" : "Wilt Chamberlain",
+        "d" : "Bill Russell",
+        "answer" : "a",
+        "image" : "dame.jpg"
     }
 ]

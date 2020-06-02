@@ -45,10 +45,8 @@
 import app from "../App.vue";
 import axios from "axios";
 
-//Vue.config.productionTip = false
-
 // constants and variable that holds our json questions
-const numberOfQuestions = 18;
+const numberOfQuestions = 20;
 let defaultColour = "grey";
 let correctColour = "green";
 let wrongColour = "red";
@@ -143,7 +141,7 @@ export default {
           this.finalMessage = "I hope you know where you went wrong.";
         } else if (this.score < 10) {
           this.finalMessage = "You have to brush up on your NBA trivia knowledge a little";
-        } else if (this.score < 14) {
+        } else if (this.score < 15) {
           this.finalMessage = "You got average knowledge of the NBA";
         } else if (this.score < numberOfQuestions) {
           this.finalMessage = "You have great knowledge of the NBA";
@@ -246,10 +244,6 @@ h1 {
 #aButton, #bButton, #cButton, #dButton {
   width: 30%;
   display: block;
-}
-
-#topRow {
-  
 }
 
 #playAgainButton {
