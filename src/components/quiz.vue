@@ -365,7 +365,7 @@ h1 {
   }
 
   #startingCreditText {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   #creditText {
