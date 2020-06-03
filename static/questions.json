@@ -101,12 +101,12 @@
     },
     {
         "id": 11,
-        "question": "In the 2018 season, who did the Raptors trade to receive Kawhi Leonard and Danny Green?",
-        "a" : "Demar DeRozan and Jakob Poeltl",
-        "b" : "Kyle Lowry and Demar DeRozan",
-        "c" : "Pascal Siakam and OG Anonuby",
-        "d" : "CJ Miles and Serge Ibaka",
-        "answer" : "a",
+        "question": "What team owns the longest winning streak in NBA history??",
+        "a" : "Miami Heat",
+        "b" : "Chicago Bulls",
+        "c" : "Golden State Warriors",
+        "d" : "Los Angeles Lakers",
+        "answer" : "d",
         "image" : "nbaFinals.jpg"
     },
     {

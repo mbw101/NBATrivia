@@ -31,6 +31,7 @@ html {
   height: 80%;
 }
 
+/* media queries */
 @media only screen and (max-width: 768px) {
   #app_div {
     width: 100%;

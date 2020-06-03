@@ -287,6 +287,7 @@ h1 {
   margin-top: 0;
 }
 
+/* media queries */
 @media only screen and (max-width: 768px) {
   #app_div {
     background-color: #f1bf98;
@@ -296,9 +297,6 @@ h1 {
     text-align: center;
     position: relative;
     display: grid;
-    /*width: 100%;*/
-    /*width: 75%;
-    height: 80%;*/
     width: 100%;
   }
 }
@@ -309,31 +307,65 @@ h1 {
   } 
 
   #startingCreditText {
-    margin-top: 85%;
+    font-size: 18px;
+  }
+
+  #creditText {
+    font-size: 18px;
+  }
+
+  #imageDisplay {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 0;
+  }
+
+  #aButton, #bButton, #cButton, #dButton {
     font-size: 20px;
+    height: 80px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  } 
+
+  #finalMessage {
+    font-size: 18px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #playAgainButton {
+    font-size: 28px;
   }
 }
 
 @media only screen and (max-width: 380px) {
   #newTitle {
-    font-size: 24px;
+    font-size: 28px;
   } 
 
   #startingCreditText {
-    margin-top: 85%;
     font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .btn-secondary, #playAgainButton {
-    font-size: large;
+  .btn-secondary {
     background-color: #cc2936;
     color: #212529;
   }
 
+  #playAgainButton {
+    font-size: 24px;
+    width: 75%;
+  }
+
+  #startButton {
+    font-size: 18px;
+  }
+
   #startingCreditText {
-    margin-top: 85%;
+    font-size: 18px;
   }
 
   #creditText {
