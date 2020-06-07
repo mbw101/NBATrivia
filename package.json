@@ -9,7 +9,7 @@
     "serve": "vue-cli-service serve",
     "start": "node server.js",
     "build": "vue-cli-service build",
-    "postinstall": "npm run build"
+    "postinstall": "npm install && npm run build"
   },
   "dependencies": {
     "@vue/cli-service": "^4.4.1",
