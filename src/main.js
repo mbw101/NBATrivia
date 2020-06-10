@@ -7,6 +7,8 @@ import router from './router'
 // bootstrap-vue 
 import BootstrapVue from 'bootstrap-vue'
 
+// add these before Vue is instantiated
+
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue);

@@ -95,7 +95,7 @@ export default {
       this.answer3 = questionData[this.questionNumber - 1].c;
       this.answer4 = questionData[this.questionNumber - 1].d;
       this.correctOption = questionData[this.questionNumber - 1].answer;
-      this.imageSource = "../../static/" + questionData[this.questionNumber - 1].image;
+      this.imageSource = "static/" + questionData[this.questionNumber - 1].image;
       console.log(this.imageSource);
     },
     checkAnswer: function(option) {
@@ -147,8 +147,9 @@ export default {
       console.log("\n *START* \n");
 
       if (questionData == null) {
+
         // read in json file using axios
-        axios.get("./static/questions.json").then(response => {
+        axios.get("questions.json").then(response => {
           // print out for testing and save in global variable
           questionData = response.data;
           console.log(questionData);
@@ -162,7 +163,16 @@ export default {
           this.correctOption = questionData[0].answer;
           this.imageSource = "../../static/" + questionData[0].image;
           console.log(this.imageSource);
-        });
+        })
+        .catch(error => {
+        if (!error.response) {
+            // network error
+            this.errorStatus = 'Error: Network Error';
+            console.log("TESTING !#");
+        } else {
+            this.errorStatus = error.response.data.message;
+        }
+      });
       }
     },
     playAgain: function() {

@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "question": "Which player had his jersey retired by the Miami Heat?",
+        "a" : "Michael Jordan",
+        "b" : "Pete Maravich",
+        "c" : "Bam Adebayo",
+        "d" : "Chris Webber",
+        "answer" : "a",
+        "image" : "allenIverson.jpg"
+    },
+    {
+        "id": 2,
+        "question": "Who has the most blocks in an NBA career?",
+        "a" : "David Robinson",
+        "b" : "Shaquille O'Neal",
+        "c" : "Hakeem Olajuwon",
+        "d" : "Elmore Smith",
+        "answer" : "c",
+        "image" : "kobe2.jpg"
+    },
+    {
+        "id": 3,
+        "question": "Who has the most blocks in an NBA game?",
+        "a" : "David Robinson",
+        "b" : "Shaquille O'Neal",
+        "c" : "Hakeem Olajuwon",
+        "d" : "Elmore Smith",
+        "answer" : "d",
+        "image" : "michaelJordan.jpg"
+    },
+    {
+        "id": 4,
+        "question": "Which NBA player when to Texas University?",
+        "a" : "Kevin Durant",
+        "b" : "Bradley Beal",
+        "c" : "Pascal Siakam",
+        "d" : "Eric Bledsoe",
+        "answer" : "a",
+        "image" : "kyrie.jpg"
+    },
+    {
+        "id": 5,
+        "question": "Which college did CJ McCollum go?",
+        "a" : "Weber State",
+        "b" : "Lehigh",
+        "c" : "Ohio State",
+        "d" : "Michigan",
+        "answer" : "b",
+        "image" : "cj.jpg"
+    },
+    {
+        "id": 6,
+        "question": "Who is the leading scorer of all time?",
+        "a" : "Michael Jordan",
+        "b" : "Kareem-Abdul Jabbar",
+        "c" : "Wilt Chamberlain",
+        "d" : "Kobe Bryant",
+        "answer" : "b",
+        "image" : "lebron2.jpg"
+    },
+    {
+        "id": 7,
+        "question": "How many championships did Kobe Bryant win?",
+        "a" : "3",
+        "b" : "4",
+        "c" : "5",
+        "d" : "6",
+        "answer" : "c",
+        "image" : "kobe2.jpg"
+    },
+    {
+        "id": 8,
+        "question": "How many 3 pointers did Ray Allen make in his career?",
+        "a" : "2,973",
+        "b" : "2,560",
+        "c" : "2,495",
+        "d" : "3,223",
+        "answer" : "a",
+        "image" : "lebron3.jpg"
+    },
+    {
+        "id": 9,
+        "question": "Which of these players have the most runner-up MVPs (second votes) but have never won an MVP?",
+        "a" : "George Gervin",
+        "b" : "Bob McAdoo",
+        "c" : "Jerry West",
+        "d" : "Oscar Robertson",
+        "answer" : "c",
+        "image" : "towns.jpg"
+    },
+    {
+        "id": 10,
+        "question": "How many times has Michael Jordan led the league in scoring?",
+        "a" : "9 times",
+        "b" : "10 times",
+        "c" : "11 times",
+        "d" : "12 times",
+        "answer" : "b",
+        "image" : "rayAllen.jpg"
+    },
+    {
+        "id": 11,
+        "question": "What team owns the longest winning streak in NBA history??",
+        "a" : "Miami Heat",
+        "b" : "Chicago Bulls",
+        "c" : "Golden State Warriors",
+        "d" : "Los Angeles Lakers",
+        "answer" : "d",
+        "image" : "nbaFinals.jpg"
+    },
+    {
+        "id": 12,
+        "question": "Who won the first ever Kobe MVP Award at the 2020 NBA All Star game?",
+        "a" : "LeBron James",
+        "b" : "Kawhi Leonard",
+        "c" : "Anthony Davis",
+        "d" : "Trae Young",
+        "answer" : "b",
+        "image" : "nbaAllStarGame.jpeg"
+    },
+    {
+        "id": 13,
+        "question": "In what city were the Los Angeles Lakers initially based?",
+        "a" : "Detroit, Michigan",
+        "b" : "Minneapolis, Minnesota",
+        "c" : "Rochester, New York",
+        "d" : "Columbus, Ohio",
+        "answer" : "b",
+        "image" : "jrSmith.jpg"
+    },
+    {
+        "id": 14,
+        "question": "How much money did Scottie Pippen earn in his notorious 7-year contract?",
+        "a" : "19 million",
+        "b" : "10 million",
+        "c" : "16 million",
+        "d" : "18 million",
+        "answer" : "d",
+        "image" : "warriors.jpg"
+    },
+    {
+        "id": 15,
+        "question": "Who was the leader in field goal percentage in the 2018-2019 season?",
+        "a" : "Ben Simmons",
+        "b" : "Rudy Gobert",
+        "c" : "Jonas Valančiūnas",
+        "d" : "Giannis Antetokounmpo",
+        "answer" : "b",
+        "image" : "kevinLove.jpg"
+    },
+    {
+        "id": 16,
+        "question": "How many 3-pointers did Kareem Abdul-Jabaar make in his NBA career?",
+        "a" : "0",
+        "b" : "1",
+        "c" : "2",
+        "d" : "3",
+        "answer" : "b",
+        "image" : "brogdon.jpg"
+    },
+    {
+        "id": 17,
+        "question": "Which of these NBA players has the highest points per game average in their career?",
+        "a" : "Rick Barry",
+        "b" : "Pete Maravich",
+        "c" : "George Gervin",
+        "d" : "Dwyane Wade",
+        "answer" : "c",
+        "image" : "benSimmons.jpg"
+    },
+    {
+        "id": 18,
+        "question": "Which of these NBA players has the highest rebounds per game average in their career?",
+        "a" : "Charles Barkley",
+        "b" : "Hakeem Olajuwon",
+        "c" : "Dennis Rodman",
+        "d" : "Shaquille O'Neal",
+        "answer" : "a",
+        "image" : "alHorfod.jpg"
+    },
+    {
+        "id": 19,
+        "question": "Out of these players, who won an NBA MVP award in their rookie year?",
+        "a" : "Michael Jordan",
+        "b" : "LeBron James",
+        "c" : "Magic Johnson",
+        "d" : "Wes Unseld",
+        "answer" : "d",
+        "image" : "pgKawhi.jpg"
+    },
+    {
+        "id": 20,
+        "question": "Who was the youngest MVP in NBA history?",
+        "a" : "Derrick Rose",
+        "b" : "LeBron James",
+        "c" : "Wilt Chamberlain",
+        "d" : "Bill Russell",
+        "answer" : "a",
+        "image" : "dame.jpg"
+    }
+]
