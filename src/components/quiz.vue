@@ -301,6 +301,14 @@ h1 {
     position: relative;
     display: grid;
     width: 100%;
+    height: 100%;
+  }
+
+  #imageDisplay {
+    width: 85%;
+    height: auto;
+    margin: auto;
+    margin-top: 0;
   }
 }
 
@@ -317,15 +325,8 @@ h1 {
     font-size: 18px;
   }
 
-  #imageDisplay {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    margin-top: 0;
-  }
-
   #aButton, #bButton, #cButton, #dButton {
-    font-size: 20px;
+    font-size: 18px;
     height: 80px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -347,8 +348,19 @@ h1 {
     font-size: 28px;
   } 
 
+  #question {
+    font-size: 16px;
+  }
+
   #startingCreditText {
     font-size: 20px;
+  }
+
+  #imageDisplay {
+    width: 85%;
+    height: auto;
+    margin: auto;
+    margin-top: 0;
   }
 }
 
@@ -356,6 +368,10 @@ h1 {
   .btn-secondary {
     background-color: #cc2936;
     color: #212529;
+  }
+
+  #question {
+    font-size: 14px;
   }
 
   #playAgainButton {
@@ -371,8 +387,19 @@ h1 {
     font-size: 16px;
   }
 
+  #aButton, #bButton, #cButton, #dButton {
+    font-size: 14px;
+    height: 80px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  } 
+
   #creditText {
     font-size: 14px;
+  }
+
+  #score {
+    margin: 0;
   }
 }
 
