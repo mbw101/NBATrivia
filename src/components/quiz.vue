@@ -1,7 +1,7 @@
 <template>
   <div id="app_div" class="rounded"> <!-- p-5 -->
     <!-- most text including quiz start, start button and score -->
-    <h1 id="newTitle" class="p-3" v-if="!started || finished">Easy NBA Trivia App</h1>
+    <h1 id="newTitle" class="p-3" v-if="!started || finished">NBA Trivia App</h1>
 
     <img id="imageDisplay" v-if="!finished" :src="imageSource"/>
 
@@ -45,7 +45,7 @@
 import axios from "axios";
 
 // constants and variable that holds our json questions
-const numberOfQuestions = 20;
+const numberOfQuestions = 25;
 var questionData;
 
 // these functions are responsible for the sounds
@@ -130,14 +130,17 @@ export default {
         this.finished = true;
 
         // decide final msg to user based on their final score
-        if (this.score < 5) {
-          this.finalMessage = "I hope you know where you went wrong.";
-        } else if (this.score < 10) {
+        if (this.score < this.amountOfQuestions / 4) {
+          this.finalMessage = "I hope you know where you went wrong lol";
+          console.log(this.amountOfQuestions / 4);
+        } else if (this.score < this.amountOfQuestions / 2) {
           this.finalMessage = "You have to brush up on your NBA trivia knowledge a little";
-        } else if (this.score < 15) {
-          this.finalMessage = "You got average knowledge of the NBA";
+          console.log(this.amountOfQuestions / 2);
+        } else if (this.score < (this.amountOfQuestions * 3) / 4) {
+          this.finalMessage = "You have good knowledge of the NBA!";
+          console.log((this.amountOfQuestions * 3) / 4);
         } else if (this.score < numberOfQuestions) {
-          this.finalMessage = "You have great knowledge of the NBA";
+          this.finalMessage = "You have great knowledge of the NBA!";
         } else {
           this.finalMessage = "Fantastic, you got perfect!";
         }

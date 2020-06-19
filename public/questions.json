@@ -198,5 +198,55 @@
         "d" : "Bill Russell",
         "answer" : "a",
         "image" : "dame.jpg"
+    },
+    {
+        "id": 21,
+        "question": "How many championships does Michael Jordan have?",
+        "a" : "3",
+        "b" : "4",
+        "c" : "5",
+        "d" : "6",
+        "answer" : "d",
+        "image" : "vinceCarter.jpg"
+    },
+    {
+        "id": 22,
+        "question": "Where was the first NBA game played at?",
+        "a" : "Toronto",
+        "b" : "New York City",
+        "c" : "Los Angeles",
+        "d" : "Buffalo",
+        "answer" : "a",
+        "image" : "reddick.jpg"
+    },
+    {
+        "id": 23,
+        "question": "Which team drafted Vince Carter?",
+        "a" : "Toronto Raptors",
+        "b" : "Golden State Warriors",
+        "c" : "New Jersey Nets",
+        "d" : "Orlando Magic",
+        "answer" : "b",
+        "image" : "nbaFinals2.jpg"
+    },
+    {
+        "id": 24,
+        "question": "Who holds the record for the most steals in a playoff game?",
+        "a" : "Fred Vanvleet",
+        "b" : "Ray Allen",
+        "c" : "Allen Iverson",
+        "d" : "Michael Jordan",
+        "answer" : "c",
+        "image" : "nash.jpg"
+    },
+    {
+        "id": 25,
+        "question": "Which team has the most NBA championships?",
+        "a" : "Boston Celtics",
+        "b" : "Los Angeles Lakers",
+        "c" : "New York Knicks",
+        "d" : "Detroit Pistons",
+        "answer" : "a",
+        "image" : "luka.jpg"
     }
 ]
