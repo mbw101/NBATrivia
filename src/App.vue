@@ -43,4 +43,11 @@ html {
   }
 }
 
+@media only screen and (max-height: 700px) and (min-width: 769px) {
+  #app_div {
+    width: 75%;
+    height: 90%;
+  }
+}
+
 </style>

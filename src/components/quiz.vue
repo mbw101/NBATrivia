@@ -239,6 +239,9 @@ h1 {
   padding-left: 10%;
   padding-right: 10%;
   word-break: break-word;
+  /* this is the height of a question with two lines.
+    It keeps the design constant regardless of the question length.*/
+  height: 82px;
 }
 
 .btn-secondary, #playAgainButton {
@@ -308,8 +311,8 @@ h1 {
   }
 
   #imageDisplay {
-    width: 85%;
-    height: auto;
+    width: 100%;
+    height: 200px;
     margin: auto;
     margin-top: 0;
   }
@@ -344,6 +347,10 @@ h1 {
   #playAgainButton {
     font-size: 28px;
   }
+
+  #question {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 380px) {
@@ -360,8 +367,8 @@ h1 {
   }
 
   #imageDisplay {
-    width: 85%;
-    height: auto;
+    width: 100%;
+    height: 150px;
     margin: auto;
     margin-top: 0;
   }
@@ -403,6 +410,19 @@ h1 {
 
   #score {
     margin: 0;
+  }
+}
+
+@media only screen and (max-height: 700px) and (min-width: 769px) {
+  #imageDisplay {
+    width: 45%;
+    height: 200px;
+    margin: auto;
+    margin-top: 0;
+  }  
+
+  #score {
+    margin-top: 0px !important; /* overrides the bootstrap margin set in the class */
   }
 }
 
