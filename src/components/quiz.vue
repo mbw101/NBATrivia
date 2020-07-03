@@ -25,7 +25,7 @@
         <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="m-1 col" size="sm">{{ answer4 }}</b-button>
       </div>
 
-      <p id="score" class="mt-5">Score: {{ score }}/{{ amountOfQuestions }}</p>
+      <p id="score" class="mt-3">Score: {{ score }}/{{ amountOfQuestions }}</p>
       <p id="creditText">Copyright &copy; 2020 Malcolm Wright</p>
     </template>
 
