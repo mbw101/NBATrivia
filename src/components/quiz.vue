@@ -17,22 +17,30 @@
     <template v-if="!finished && started">
       <h4 id="question" class="pt-4">{{ question }}</h4>
       <div id="topRow" class="row pl-4 pr-4 mt-3">
-        <b-button pill id="aButton" v-on:click="checkAnswer('a')" class="m-1 col" size="sm">{{ answer1 }}</b-button>
-        <b-button pill id="bButton" v-on:click="checkAnswer('b')" class="m-1 col" size="sm">{{ answer2 }}</b-button>
+        <b-button pill id="aButton" v-on:click="checkAnswer('a')"
+        class="m-1 col" v-bind:class="[answer1Colour]" size="sm">{{ answer1 }}</b-button>
+        <b-button pill id="bButton" v-on:click="checkAnswer('b')" v-bind:class="[answer2Colour]" class="m-1 col answer2Colour" size="sm">{{ answer2 }}</b-button>
       </div>
-      <div id="bottomRow" class="row pl-4 pr-4">
-        <b-button pill id="cButton" v-on:click="checkAnswer('c')" class="m-1 col" size="sm">{{ answer3 }}</b-button>
-        <b-button pill id="dButton" v-on:click="checkAnswer('d')" class="m-1 col" size="sm">{{ answer4 }}</b-button>
+      <div id="bottomRow" class="row pl-4 pr-4"> 
+        <b-button pill id="cButton" v-on:click="checkAnswer('c')" v-bind:class="[answer3Colour]" class="m-1 col answer3Colour" size="sm">{{ answer3 }}</b-button>
+        <b-button pill id="dButton" v-on:click="checkAnswer('d')" v-bind:class="[answer4Colour]" class="m-1 col answer4Colour" size="sm">{{ answer4 }}</b-button>
       </div>
 
-      <p id="score" class="mt-3">Score: {{ score }}/{{ amountOfQuestions }}</p>
+      <div id="scoreRow" class="row mx-auto">
+        <p id="score" class="mr-3 mt-3">Score: {{ score }}/{{ amountOfQuestions }}</p>
+
+        <b-button pill id="nextButton" v-on:click="nextQuestion()" class="m-1 row ml-3">Next Question</b-button>        
+      </div>
+
       <p id="creditText">Copyright &copy; 2020 Malcolm Wright</p>
     </template>
 
     <template v-if="finished">
       <h4 id="finalScore" v-if="finished">Your final score is {{ score }} / {{ amountOfQuestions }} </h4>
       <h3 id="finalMessage" v-if="finished">{{finalMessage}}</h3>
-      <button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" type="button" class="btn btn-sm">Play again</button>
+      <div class="d-flex justify-content-center">
+        <button pill v-if="finished" id="playAgainButton" v-on:click="playAgain()" type="button" class="btn btn-sm">Play again</button>
+      </div>
 
       <p id="finalMessage" class="pt-5" v-if="finished">Check out my <a href="https://mbw101.github.io/" target="_blank">website</a></p>
       <p id="creditText">Copyright &copy; 2020 Malcolm Wright</p>
@@ -68,6 +76,7 @@ export default {
     return {
       started: false,
       finished: false,
+      answeredQuestion: false,
       question: "TEST",
       finalMessage: "",
       score: 0,
@@ -78,13 +87,12 @@ export default {
       answer3: "C",
       answer4: "D",
       correctOption: "",
-      imageSource: ""
+      imageSource: "",
+      answer1Colour: "regularAnswer",
+      answer2Colour: "regularAnswer",
+      answer3Colour: "regularAnswer",
+      answer4Colour: "regularAnswer",
     };
-  },
-  computed: {
-    getColour: function() {
-      return this.activeColor;
-    }
   },
   methods: {
     updateQuestion: function() {
@@ -97,53 +105,93 @@ export default {
       this.correctOption = questionData[this.questionNumber - 1].answer;
       this.imageSource = "static/" + questionData[this.questionNumber - 1].image;
       console.log(this.imageSource);
+
+      // reset button class colours for the new question
+      this.answer1Colour = "regularAnswer";
+      this.answer2Colour =  "regularAnswer";
+      this.answer3Colour =  "regularAnswer";
+      this.answer4Colour =  "regularAnswer";
     },
     checkAnswer: function(option) {
       // the margin bottom for h1 has to be changed (h1 is the title header)
+      if (!this.answeredQuestion) {
+        console.log("Selected answer: " + option);
+        console.log("Correct answer: " + this.correctOption);
 
-      /* change margin to 5% */
-      this.marginBottom = "5%";
-      this.activeColor = "blue";
-      console.log("Selected answer: " + option);
-      console.log("Correct answer: " + this.correctOption);
+        // 1 represents a correct response and 0 for an incorrect one
+        let correctResponse = 0;
 
-      // add to score if correct and play the respective score
-      if (option == this.correctOption) {
-        console.log("CORRECT");
-        playCorrectSound();
-        this.score += 1;
-      } else {
-        playIncorrectSound();
-        console.log("INCORRECT");
-      }
-
-      // go to next question unless we have reached the last one
-      console.log("Amt:" + this.amountOfQuestions);
-      console.log("Question #:" + this.questionNumber - 1);
-
-      // go to next question
-      this.questionNumber += 1;
-        
-      if (this.questionNumber <= this.amountOfQuestions) {
-        this.updateQuestion();
-      } else {
-        this.finished = true;
-
-        // decide final msg to user based on their final score
-        if (this.score < this.amountOfQuestions / 4) {
-          this.finalMessage = "I hope you know where you went wrong lol";
-          console.log(this.amountOfQuestions / 4);
-        } else if (this.score < this.amountOfQuestions / 2) {
-          this.finalMessage = "You have to brush up on your NBA trivia knowledge a little";
-          console.log(this.amountOfQuestions / 2);
-        } else if (this.score < (this.amountOfQuestions * 3) / 4) {
-          this.finalMessage = "You have good knowledge of the NBA!";
-          console.log((this.amountOfQuestions * 3) / 4);
-        } else if (this.score < numberOfQuestions) {
-          this.finalMessage = "You have great knowledge of the NBA!";
+        // add to score if correct and play the respective score
+        if (option == this.correctOption) {
+          console.log("CORRECT");
+          playCorrectSound();
+          this.score += 1;
+          correctResponse = 1;
         } else {
-          this.finalMessage = "Fantastic, you got perfect!";
+          playIncorrectSound();
+          console.log("INCORRECT");
+          correctResponse = 0;
         }
+
+        //change the right answer to green and red if it's incorrect
+        if (option == 'a') {
+          // the user picked A
+          if (correctResponse == 1) {
+            this.answer1Colour = "correctAnswer";
+          }
+          else {
+            this.answer1Colour = "wrongAnswer";
+          }
+        }
+        else if (option == 'b') {
+          // the user picked A
+          if (correctResponse == 1) {
+            this.answer2Colour = "correctAnswer";
+          }
+          else {
+            this.answer2Colour = "wrongAnswer";
+          }
+        }
+        else if (option == 'c') {
+          // the user picked A
+          if (correctResponse == 1) {
+            this.answer3Colour = "correctAnswer";
+          }
+          else {
+            this.answer3Colour = "wrongAnswer";
+          }
+        }
+        else if (option == 'd') {
+          // the user picked A
+          if (correctResponse == 1) {
+            this.answer4Colour = "correctAnswer";
+          }
+          else {
+            this.answer4Colour = "wrongAnswer";
+          }
+        }
+
+        if (correctResponse == 0) {
+          // highlight the right answer
+          if (this.correctOption == 'a') {
+            this.answer1Colour = "correctAnswer";
+          }
+          else if (this.correctOption == 'b') {
+            this.answer2Colour = "correctAnswer";
+          }
+          else if (this.correctOption == 'c') {
+            this.answer3Colour = "correctAnswer";
+          }
+          else if (this.correctOption == 'd') {
+            this.answer4Colour = "correctAnswer";
+          }
+        }
+        // record that it has been answered, so they can't answer it more than once
+        this.answeredQuestion = true;
+
+        // go to next question unless we have reached the last one
+        console.log("Amt:" + this.amountOfQuestions);
+        console.log("Question #:" + this.questionNumber - 1);
       }
     },
     loadQuestions: function() {
@@ -193,7 +241,41 @@ export default {
       this.answer4 = questionData[0].d;
       this.correctOption = questionData[0].answer;
       this.imageSource = "../../static/" + questionData[0].image;
+
+      // reset button classes for their colours
+      this.answer1Colour = "regularAnswer";
+      this.answer2Colour =  "regularAnswer";
+      this.answer3Colour =  "regularAnswer";
+      this.answer4Colour =  "regularAnswer";
       console.log(this.imageSource);
+    },
+    nextQuestion: function() {
+      // go to the next question
+      this.questionNumber += 1;
+      // reset toggle for question
+      this.answeredQuestion = false;
+
+      if (this.questionNumber <= this.amountOfQuestions) {
+        this.updateQuestion();
+      } else {
+        this.finished = true;
+
+        // decide final msg to user based on their final score
+        if (this.score < this.amountOfQuestions / 4) {
+          this.finalMessage = "You may have to review your nba trivia";
+          console.log(this.amountOfQuestions / 4);
+        } else if (this.score < this.amountOfQuestions / 2) {
+          this.finalMessage = "You had a good attempt at it";
+          console.log(this.amountOfQuestions / 2);
+        } else if (this.score < (this.amountOfQuestions * 3) / 4) {
+          this.finalMessage = "You have good knowledge of the NBA!";
+          console.log((this.amountOfQuestions * 3) / 4);
+        } else if (this.score < numberOfQuestions) {
+          this.finalMessage = "You have great knowledge of the NBA!";
+        } else {
+          this.finalMessage = "Fantastic, you got perfect!";
+        }
+      }
     }
   },
   created: function() {
@@ -224,7 +306,7 @@ h1 {
 }
 
 #app_div {
-  background-color: #f1bf98;
+  background-color: #CED097;
   border: black;
   border-width: 3px;
   border-style: solid;
@@ -246,7 +328,7 @@ h1 {
 
 .btn-secondary, #playAgainButton {
   font-size: x-large;
-  background-color: #cc2936;
+  background-color: #7EBDC3;
   color: #212529;
 }
 
@@ -296,6 +378,19 @@ h1 {
   margin-top: 0;
 }
 
+.correctAnswer {
+  background-color: green;
+}
+
+.wrongAnswer {
+  background-color: #cc2936;
+}
+
+.regularAnswer {
+  background-color: #7EBDC3;
+}
+
+
 /* media queries */
 @media only screen and (max-width: 768px) {
   #app_div {
@@ -331,7 +426,7 @@ h1 {
     font-size: 18px;
   }
 
-  #aButton, #bButton, #cButton, #dButton {
+  #aButton, #bButton, #cButton, #dButton, #nextButton {
     font-size: 18px;
     height: 80px;
     text-overflow: ellipsis;
@@ -376,7 +471,6 @@ h1 {
 
 @media only screen and (max-width: 320px) {
   .btn-secondary {
-    background-color: #cc2936;
     color: #212529;
   }
 

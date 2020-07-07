@@ -25,5 +25,6 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## TODO:
+* See if you can record average score, number of users, and questions they get wrong the most
 * Continue adding more questions
 * Handle landscape orientation
