@@ -81,7 +81,7 @@
     },
     {
         "id": 9,
-        "question": "Which of these players have the most runner-up MVPs (second votes) but have never won an MVP?",
+        "question": "Which of these players has the most runner-up MVPs (second votes) but have never won an MVP?",
         "a" : "George Gervin",
         "b" : "Bob McAdoo",
         "c" : "Jerry West",
