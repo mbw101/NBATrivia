@@ -27,7 +27,7 @@
       </div>
 
       <div id="scoreRow" class="row mx-auto">
-        <p id="score" class="mr-3 mt-3">Score: {{ score }}/{{ amountOfQuestions }}</p>
+        <p id="score" class="mr-3 mt-3 d-inline-block">Score: {{ score }}/{{ amountOfQuestions }}</p>
 
         <b-button pill id="nextButton" v-on:click="nextQuestion()" class="m-1 row ml-3">Next Question</b-button>        
       </div>
@@ -361,7 +361,6 @@ h1 {
   height: 150%;
 } 
 
-
 #creditText {
   font-size: 24px;
 }  
@@ -394,7 +393,7 @@ h1 {
 /* media queries */
 @media only screen and (max-width: 768px) {
   #app_div {
-    background-color: #f1bf98;
+    background-color: #CED097;
     border: black;
     border-width: 3px;
     border-style: solid;
@@ -445,6 +444,11 @@ h1 {
 
   #question {
     font-size: 18px;
+  }
+
+  #score {
+    font-size: 18px;
+    margin-top: 2rem !important;
   }
 }
 
@@ -502,9 +506,9 @@ h1 {
     font-size: 14px;
   }
 
-  #score {
+  /* #score {
     margin: 0;
-  }
+  } */
 }
 
 @media only screen and (max-height: 700px) and (min-width: 769px) {
@@ -515,9 +519,9 @@ h1 {
     margin-top: 0;
   }  
 
-  #score {
-    margin-top: 0px !important; /* overrides the bootstrap margin set in the class */
-  }
+  /* #score {
+    margin-top: 0px !important; /* overrides the bootstrap margin set in the class 
+  } */
 }
 
 </style>
